@@ -11,8 +11,8 @@ const Home = () => {
       <Hero />
       <Features />
       <BestSelling/>
-      <Testimonials />
       <CTA />
+      <Testimonials />
     </>
   );
 };
