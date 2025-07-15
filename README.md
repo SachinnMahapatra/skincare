@@ -1,5 +1,9 @@
 # Skincare Landing Page
 
+
+
+**Live Demo:** [https://skincare-sachin.netlify.app/](https://skincare-sachin.netlify.app/)
+
 A beautiful, responsive React landing page built with Vite, Tailwind CSS, and GSAP animations.
 
 ---
