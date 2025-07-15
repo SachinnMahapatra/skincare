@@ -178,11 +178,11 @@ const Hero = () => {
                 />
                 {/* Notification bubble */}
                 <div className="absolute left-1/2 bottom-[-36px] transform -translate-x-1/2 -translate-y-15 bg-white/80 backdrop-blur-lg rounded-full px-2 py-2 flex items-center gap-4 shadow-xl border border-[#E6E9E2] min-w-[250px] md:min-w-[350px] max-w-[90vw]">
-                  <span className="inline-block w-12 h-12 md:w-15 md:h-15 bg-[#EFF5E1] rounded-full flex items-center justify-center border-2 border-dotted border-[#2D3B36] overflow-hidden">
+                  <span className="inline-block w-20 h-12 md:w-15 md:h-15 bg-[#EFF5E1] rounded-full flex items-center justify-center border-2 border-dotted border-[#2D3B36] overflow-hidden">
                     <img
                       src="/herobottle.png"
                       alt="Product"
-                      className="w-10 h-10 md:w-16 md:h-16 object-contain"
+                      className="w-10 h-10 md:w-16 md:h-16 object-cover"
                     />
                   </span>
                   <span className="text-[#2D3B36] text-xs md:text-base font-medium leading-snug">
