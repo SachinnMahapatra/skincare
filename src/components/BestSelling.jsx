@@ -67,12 +67,12 @@ function BestSelling() {
         {/* Tablet/Mobile Layout */}
         <div className="flex flex-col gap-6 lg:hidden">
           {/* Row 1: Pill */}
-          <div className="flex items-center border border-[#2D3B36] rounded-full px-6 py-2 bg-white text-[#2D3B36] text-base font-medium w-fit mx-auto">
+          <div className="flex items-center border border-[#2D3B36] rounded-full px-6 py-2 bg-white text-[#2D3B36] text-base font-medium w-fit ml-0">
             <span className="inline-block w-3 h-3 bg-[#2D3B36] rounded-full mr-2"></span>
             Best Selling Products
           </div>
           {/* Row 2: Heading */}
-          <h2 className="text-center text-[#2D3B36] text-2xl xs:text-3xl sm:text-4xl font-semibold leading-tight">
+          <h2 className="text-left text-[#2D3B36] text-2xl xs:text-3xl sm:text-4xl font-semibold leading-tight">
             Skincare That Brings Out<br />Your Natural Radiance
           </h2>
           {/* Row 3: Product Slider */}
@@ -85,7 +85,7 @@ function BestSelling() {
               {products.map((product, idx) => (
                 <div
                   key={idx}
-                  className={`relative rounded-2xl overflow-hidden bg-transparent h-[750px] min-w-[80vw] max-w-[80vw]`}
+                  className={`relative rounded-2xl overflow-hidden bg-transparent h-[500px] sm:h-[750px] min-w-[80vw] max-w-[80vw]`}
                   style={isDesktop ? {} : {}}
                 >
                   <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-cover" />
