@@ -13,7 +13,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex items-center flex-shrink-0">
-          <span className="font-extrabold text-xl tracking-widest text-[#232D1A] underline decoration-[#3A6B7A] decoration-4 underline-offset-4">SKINCARE</span>
+          <span className="font-extrabold text-xl tracking-widest text-[#232D1A] ">SKINCARE</span>
         </div>
         {/* Center: Nav */}
         <nav className="hidden md:flex flex-1 justify-center gap-10">
@@ -21,7 +21,7 @@ const Header = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-[#232D1A] font-normal hover:text-[#3A6B7A] transition px-2"
+              className="text-[#232D1A] text-sm font-sans hover:text-[#3A6B7A] transition px-1"
             >
               {link.name}
             </a>
@@ -31,7 +31,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <a href="#" className="flex items-center gap-1 p-2 rounded-full hover:bg-[#E6E9E2] transition text-[#232D1A]">
             <img src="/bag-4-svgrepo-com 1.svg" alt="Cart" className="h-5 w-5" />
-            <span className="text-sm">Cart (1)</span>
+            <span className="hidden lg:text-sm">Cart (1)</span>
           </a>
           <a href="#" className="p-2 rounded-full hover:bg-[#E6E9E2] transition">
             <img src="/heart-svgrepo-com (1) 1.svg" alt="Heart" className="h-5 w-5" />

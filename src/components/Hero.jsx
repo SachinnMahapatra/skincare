@@ -5,31 +5,26 @@ const Hero = () => {
 <>
     <section className="relative w-full bg-[#EFF5E1] overflow-hidden pt-10 pb-20">
       {/* Desktop (lg+) view: only visible on lg and up */}
-      <div className="hidden lg:grid grid-cols-1 lg:grid-cols-3 items-center relative z-10 px-4 sm:px-6 lg:px-8 min-h-[600px]">
-        {/* Left: Description & Button */}
-        <div className="flex flex-col items-start gap-6 lg:gap-10 justify-center h-full">
-          <p className="text-[#2D3B36] text-lg md:text-xl font-normal leading-relaxed text-left max-w-xs md:max-w-sm pl-6">
-            Transform your skincare routine with premium products that restore,
-            protect, and enhance your natural glow every day.
+      <div className="hidden lg:grid grid-cols-3 items-start relative z-10 px-4 sm:px-6 lg:px-8 min-h-[600px]">
+        {/* Left: Description and Shop Now button (top-aligned) */}
+        <div className="flex flex-col items-start justify-start h-full pt-8">
+          <p className="text-[#2D3B36] text-lg font-normal leading-relaxed text-left max-w-xs mb-6">
+            Transform your skincare routine with premium products that restore, protect, and enhance your natural glow every day.
           </p>
-          <button className="bg-[#232D1A] text-white px-6 py-2 rounded-full text-base font-semibold shadow hover:bg-[#3A6B7A] transition">
+          <button className="bg-[#232D1A] translate-y-65 text-white mx-25 px-6  py-2 rounded-full text-base font-semibold shadow hover:bg-[#3A6B7A] transition">
             Shop Now
           </button>
         </div>
-        {/* Center: Heading + Image + Bubble */}
-        <div className="flex flex-col items-center gap-6 relative h-full justify-center">
-          <h1 className="text-[#2D3B36] text-5xl md:text-6xl font-extrabold text-center leading-tight mb-4">
-            GLOW
-            <br />
-            NATUR-
-            <br />
-            ALLY
+        {/* Center: Heading (top-aligned) + Hero image and notification bubble below */}
+        <div className="flex flex-col items-center justify-start h-full pt-8">
+          <h1 className="text-[#2D3B36] text-6xl font-extrabold text-start leading-tight mb-6">
+            GLOW<br />NATUR-<br />ALLY
           </h1>
-          <div className="relative mt-8">
+          <div className="relative mt-2">
             <img
               src="/hero.png"
               alt="Hero"
-              className="w-72 h-80 translate-y-29 md:w-auto md:h-auto object-cover rounded-2xl shadow-lg"
+              className="w-72 h-80 translate-y-15 md:w-auto md:h-auto object-cover rounded-2xl shadow-lg"
             />
             {/* Notification bubble */}
             <div className="absolute left-1/2 bottom-[-40px] transform -translate-x-1/2 bg-white/80 backdrop-blur-lg rounded-full px-2 py-2 flex items-center gap-4 shadow-xl border border-[#E6E9E2] min-w-[350px] max-w-[90vw]">
@@ -47,12 +42,12 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        {/* Right: Bottle Image */}
-        <div className="flex flex-col items-end justify-center h-full pt-8 lg:pt-0">
+        {/* Right: Bottle Image (top-aligned) */}
+        <div className="flex flex-col items-center justify-start h-full pt-8">
           <img
             src="/herobottle.png"
             alt="Product Bottle"
-            className="w-32 h-32 rounded-xl shadow-md bg-white/60"
+            className="w-39 h-39 rounded-xl shadow-md bg-white/60 object-contain"
           />
         </div>
       </div>
