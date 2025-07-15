@@ -79,12 +79,12 @@ const Hero = () => {
         <div className="hidden lg:grid grid-cols-3 items-start relative z-10 px-4 sm:px-6 lg:px-8 min-h-[600px]">
           {/* Left: Description and Shop Now button (top-aligned) */}
           <div className="flex flex-col items-start justify-start h-full pt-8">
-            <p ref={paraRef} className="text-[#2D3B36] text-lg font-normal leading-relaxed text-left max-w-xs mb-6">
+            <p ref={paraRef} className="text-[#2D3B36] text-lg mt-10 font-normal leading-relaxed text-left max-w-xs mb-6">
               {heroText.split(" ").map((word, i) => (
                 <span
                   key={i}
                   ref={el => (wordsRef.current[i] = el)}
-                  className="inline-block opacity-0"
+                  className="inline-block opacity-0 "
                   style={{ marginRight: "0.25em" }}
                 >
                   {word}

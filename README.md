@@ -1,12 +1,74 @@
-# React + Vite
+# Skincare Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, responsive React landing page built with Vite, Tailwind CSS, and GSAP animations.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Getting Started
 
-## Expanding the ESLint configuration
+Follow these steps to run the project on your local machine after cloning:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Prerequisites
+- **Node.js** (v16 or higher recommended)
+- **npm** (comes with Node.js)
+
+Check if you have them installed:
+```bash
+node -v
+npm -v
+```
+If not, download from [nodejs.org](https://nodejs.org/).
+
+### 2. Clone the Repository
+```bash
+git clone <repo-url>
+cd Assignment-2
+```
+
+### 3. Install Dependencies
+```bash
+npm install
+```
+This will install all required packages (React, Vite, Tailwind CSS, GSAP, etc).
+
+### 4. Start the Development Server
+```bash
+npm run dev
+```
+- The app will be available at the local address shown in your terminal (usually [http://localhost:5173](http://localhost:5173)).
+- The page will reload automatically as you edit files.
+
+
+
+
+
+---
+
+## 🛠️ Troubleshooting
+- If you see errors about missing packages, run `npm install` again.
+- If you change dependencies, restart the dev server.
+- For Tailwind CSS to work, do **not** remove the `@tailwind` directives in `src/index.css`.
+
+---
+
+## ✨ Features
+- Pixel-perfect responsive design (desktop, tablet, mobile)
+- Modern animations with GSAP
+- Built with React + Vite + Tailwind CSS
+
+---
+
+## 📁 Project Structure
+- `src/` — All React components, pages, and styles
+- `public/` — Static assets (images, SVGs)
+- `index.html` — Main HTML file
+
+---
+
+## 🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 📄 License
+This is an assignment 
