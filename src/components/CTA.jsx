@@ -12,7 +12,7 @@ const CTA = () => {
         className="absolute inset-0 w-full h-full object-cover object-center rounded-3xl"
         draggable="false"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent rounded-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent rounded-3xl" />
       <div className="relative z-10 flex flex-col items-center justify-end w-full pb-16">
         <h2 className="text-white text-6xl font-normal text-center mb-8 drop-shadow-lg leading-snug">
           Feel Beautiful Inside and Out<br />with Every Product.
