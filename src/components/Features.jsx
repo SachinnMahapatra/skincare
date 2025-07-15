@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
 
 const features = [
   {
@@ -19,12 +20,45 @@ const features = [
 ];
 
 const Features = () => {
+  const whyBtnRef = useRef(null);
+
+  useEffect(() => {
+    const btn = whyBtnRef.current;
+    if (!btn) return;
+    const onEnter = () => {
+      gsap.to(btn, { scale: 1.08, boxShadow: '0 4px 24px 0 rgba(44,62,80,0.10)', duration: 0.2, ease: 'power2.out' });
+    };
+    const onLeave = () => {
+      gsap.to(btn, { scale: 1, boxShadow: '0 0px 0px 0 rgba(44,62,80,0)', duration: 0.2, ease: 'power2.out' });
+    };
+    const onDown = () => {
+      gsap.to(btn, { scale: 0.95, duration: 0.1, ease: 'power2.in' });
+    };
+    const onUp = () => {
+      gsap.to(btn, { scale: 1.08, duration: 0.1, ease: 'power2.out' });
+    };
+    btn.addEventListener('mouseenter', onEnter);
+    btn.addEventListener('mouseleave', onLeave);
+    btn.addEventListener('mousedown', onDown);
+    btn.addEventListener('mouseup', onUp);
+    btn.addEventListener('touchstart', onDown);
+    btn.addEventListener('touchend', onUp);
+    return () => {
+      btn.removeEventListener('mouseenter', onEnter);
+      btn.removeEventListener('mouseleave', onLeave);
+      btn.removeEventListener('mousedown', onDown);
+      btn.removeEventListener('mouseup', onUp);
+      btn.removeEventListener('touchstart', onDown);
+      btn.removeEventListener('touchend', onUp);
+    };
+  }, []);
+
   return (
     <section className="w-full bg-[#FEFFF4]  py-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 sm:px-6">
         {/* Left: Text and Features */}
         <div className="flex flex-col justify-center">
-          <button className="mb-6 w-fit px-6 py-2 rounded-full border border-[#2D3B36] bg-white text-[#2D3B36] font-medium flex items-center gap-2 shadow-sm">
+          <button ref={whyBtnRef} className="mb-6 w-fit px-6 py-2 rounded-full border border-[#2D3B36] bg-white text-[#2D3B36] font-medium flex items-center gap-2 shadow-sm">
             <span className="inline-block w-3 h-3 bg-[#2D3B36] rounded-full mr-2"></span>
             Why Our Products
           </button>

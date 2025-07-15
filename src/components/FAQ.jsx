@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import gsap from 'gsap';
 
 const faqs = [
   {
@@ -26,6 +27,40 @@ const faqs = [
 
 function FAQ() {
   const [openIdx, setOpenIdx] = useState(1); // 2nd question open by default
+  const faqButtonRefs = useRef([]);
+
+  useEffect(() => {
+    faqButtonRefs.current.forEach((btn) => {
+      if (!btn) return;
+      const onEnter = () => {
+        gsap.to(btn, { scale: 1.08, boxShadow: '0 4px 24px 0 rgba(44,62,80,0.10)', duration: 0.2, ease: 'power2.out' });
+      };
+      const onLeave = () => {
+        gsap.to(btn, { scale: 1, boxShadow: '0 0px 0px 0 rgba(44,62,80,0)', duration: 0.2, ease: 'power2.out' });
+      };
+      const onDown = () => {
+        gsap.to(btn, { scale: 0.95, duration: 0.1, ease: 'power2.in' });
+      };
+      const onUp = () => {
+        gsap.to(btn, { scale: 1.08, duration: 0.1, ease: 'power2.out' });
+      };
+      btn.addEventListener('mouseenter', onEnter);
+      btn.addEventListener('mouseleave', onLeave);
+      btn.addEventListener('mousedown', onDown);
+      btn.addEventListener('mouseup', onUp);
+      btn.addEventListener('touchstart', onDown);
+      btn.addEventListener('touchend', onUp);
+      // Cleanup
+      return () => {
+        btn.removeEventListener('mouseenter', onEnter);
+        btn.removeEventListener('mouseleave', onLeave);
+        btn.removeEventListener('mousedown', onDown);
+        btn.removeEventListener('mouseup', onUp);
+        btn.removeEventListener('touchstart', onDown);
+        btn.removeEventListener('touchend', onUp);
+      };
+    });
+  }, []);
 
   return (
     <section className="w-full bg-[#FEFFF4] py-0 lg:py-16 flex justify-center items-center min-h-screen">
@@ -66,13 +101,14 @@ function FAQ() {
                   className={`border border-[#BFC8B8] rounded-md bg-white transition-all duration-200 overflow-hidden`}
                 >
                   <button
+                    ref={el => faqButtonRefs.current[idx] = el}
                     className="w-full flex items-center justify-between px-7 py-4 text-[18px] text-[#2D3B36] font-normal focus:outline-none"
                     onClick={() => setOpenIdx(idx === openIdx ? -1 : idx)}
                     aria-expanded={openIdx === idx}
                   >
                     <span>{faq.question}</span>
                     <span className="ml-4 text-2xl">
-                      {openIdx === idx ? '−' : '+'}
+                      {openIdx === idx ? '\u2212' : '+'}
                     </span>
                   </button>
                   {faq.answer && openIdx === idx && (

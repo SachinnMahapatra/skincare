@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import gsap from 'gsap';
 
 const products = [
   {
@@ -23,6 +24,8 @@ function BestSelling() {
   const [current, setCurrent] = useState(0);
   const sliderRef = useRef(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  // Refs for all product cart buttons
+  const buttonRefs = useRef([]);
 
   useEffect(() => {
     function handleResize() {
@@ -31,6 +34,40 @@ function BestSelling() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // GSAP hover/tap animation handlers
+  useEffect(() => {
+    buttonRefs.current.forEach((btn, idx) => {
+      if (!btn) return;
+      const onEnter = () => {
+        gsap.to(btn, { scale: 1.08, boxShadow: '0 4px 24px 0 rgba(44,62,80,0.10)', duration: 0.2, ease: 'power2.out' });
+      };
+      const onLeave = () => {
+        gsap.to(btn, { scale: 1, boxShadow: '0 0px 0px 0 rgba(44,62,80,0)', duration: 0.2, ease: 'power2.out' });
+      };
+      const onDown = () => {
+        gsap.to(btn, { scale: 0.95, duration: 0.1, ease: 'power2.in' });
+      };
+      const onUp = () => {
+        gsap.to(btn, { scale: 1.08, duration: 0.1, ease: 'power2.out' });
+      };
+      btn.addEventListener('mouseenter', onEnter);
+      btn.addEventListener('mouseleave', onLeave);
+      btn.addEventListener('mousedown', onDown);
+      btn.addEventListener('mouseup', onUp);
+      btn.addEventListener('touchstart', onDown);
+      btn.addEventListener('touchend', onUp);
+      // Cleanup
+      return () => {
+        btn.removeEventListener('mouseenter', onEnter);
+        btn.removeEventListener('mouseleave', onLeave);
+        btn.removeEventListener('mousedown', onDown);
+        btn.removeEventListener('mouseup', onUp);
+        btn.removeEventListener('touchstart', onDown);
+        btn.removeEventListener('touchend', onUp);
+      };
+    });
+  }, [isDesktop, products.length]);
 
   // For mobile/tablet: 1 card fully visible, no peek
   const cardWidth = isDesktop ? '100%' : '100vw';
@@ -96,7 +133,7 @@ function BestSelling() {
                         <div className="text-[#2D3B36] text-base font-medium leading-tight mb-1">{product.name}</div>
                         <div className="text-xs text-[#2D3B36] opacity-60">{product.price}</div>
                       </div>
-                      <button className="w-14 h-12 flex items-center justify-center rounded-xl bg-white/80 border border-[#E6E9E2]">
+                      <button ref={el => buttonRefs.current[idx] = el} className="w-14 h-12 flex items-center justify-center rounded-xl bg-white/80 border border-[#E6E9E2]">
                         <img src="/cart-large-2-svgrepo-com 5.svg" alt="Cart" className="w-7 h-7" />
                       </button>
                     </div>
@@ -159,7 +196,7 @@ function BestSelling() {
                       <div className="text-[#2D3B36] text-base font-medium leading-tight mb-1">{product.name}</div>
                       <div className="text-xs text-[#2D3B36] opacity-60">{product.price}</div>
                     </div>
-                    <button className="w-14 h-12 flex items-center justify-center rounded-xl bg-white/80 border border-[#E6E9E2]">
+                    <button ref={el => buttonRefs.current[idx + products.length] = el} className="w-14 h-12 flex items-center justify-center rounded-xl bg-white/80 border border-[#E6E9E2]">
                       <img src="/cart-large-2-svgrepo-com 5.svg" alt="Cart" className="w-7 h-7" />
                     </button>
                   </div>
