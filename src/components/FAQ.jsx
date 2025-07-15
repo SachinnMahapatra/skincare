@@ -63,7 +63,7 @@ function FAQ() {
   }, []);
 
   return (
-    <section className="w-full bg-[#FEFFF4] py-0 lg:py-16 flex justify-center items-center min-h-screen">
+    <section className="w-full bg-[#FEFFF4] pt-12 lg:pt-0 lg:py-16 flex justify-center items-center min-h-screen">
       <div className="max-w-[1280px] w-full mx-auto flex flex-col-reverse lg:flex-row gap-12 items-stretch px-0 lg:px-8">
         {/* Left: Image and badge */}
         <div className="flex-1 flex flex-col items-center lg:items-start justify-center min-h-[650px] max-h-[700px] lg:min-h-[800px] lg:max-h-[800px] block md:hidden lg:block">
