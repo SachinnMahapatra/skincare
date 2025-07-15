@@ -1,0 +1,145 @@
+import React from "react";
+
+const Hero = () => {
+  return (
+<>
+    <section className="relative w-full bg-[#EFF5E1] overflow-hidden pt-10 pb-20">
+      {/* Desktop (lg+) view: only visible on lg and up */}
+      <div className="hidden lg:grid grid-cols-1 lg:grid-cols-3 items-center relative z-10 px-4 sm:px-6 lg:px-8 min-h-[600px]">
+        {/* Left: Description & Button */}
+        <div className="flex flex-col items-start gap-6 lg:gap-10 justify-center h-full">
+          <p className="text-[#2D3B36] text-lg md:text-xl font-normal leading-relaxed text-left max-w-xs md:max-w-sm pl-6">
+            Transform your skincare routine with premium products that restore,
+            protect, and enhance your natural glow every day.
+          </p>
+          <button className="bg-[#232D1A] text-white px-6 py-2 rounded-full text-base font-semibold shadow hover:bg-[#3A6B7A] transition">
+            Shop Now
+          </button>
+        </div>
+        {/* Center: Heading + Image + Bubble */}
+        <div className="flex flex-col items-center gap-6 relative h-full justify-center">
+          <h1 className="text-[#2D3B36] text-5xl md:text-6xl font-extrabold text-center leading-tight mb-4">
+            GLOW
+            <br />
+            NATUR-
+            <br />
+            ALLY
+          </h1>
+          <div className="relative mt-8">
+            <img
+              src="/hero.png"
+              alt="Hero"
+              className="w-72 h-80 translate-y-29 md:w-auto md:h-auto object-cover rounded-2xl shadow-lg"
+            />
+            {/* Notification bubble */}
+            <div className="absolute left-1/2 bottom-[-40px] transform -translate-x-1/2 bg-white/80 backdrop-blur-lg rounded-full px-2 py-2 flex items-center gap-4 shadow-xl border border-[#E6E9E2] min-w-[350px] max-w-[90vw]">
+              <span className="inline-block w-15 h-15 bg-[#EFF5E1] rounded-full flex items-center justify-center border-2 border-dotted border-[#2D3B36] overflow-hidden">
+                <img
+                  src="/herobottle.png"
+                  alt="Product"
+                  className="w-16 h-16 object-contain"
+                />
+              </span>
+              <span className="text-[#2D3B36] text-base font-medium leading-snug">
+                While giving you an invigorating
+                <br className="hidden md:block" /> cleansing experience.
+              </span>
+            </div>
+          </div>
+        </div>
+        {/* Right: Bottle Image */}
+        <div className="flex flex-col items-end justify-center h-full pt-8 lg:pt-0">
+          <img
+            src="/herobottle.png"
+            alt="Product Bottle"
+            className="w-32 h-32 rounded-xl shadow-md bg-white/60"
+          />
+        </div>
+      </div>
+      {/* Tablet/Mobile (md and below) view: ONLY visible below lg */}
+      <div className="lg:hidden block max-w-7xl mx-auto w-full px-4 sm:px-6 relative z-10 mt-8">
+        {/* Top row: text and bottle image */}
+        <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-8 mb-6">
+          {/* Left: Description */}
+          <div className="flex-1 flex justify-start md:justify-end md:items-start">
+            <p className="text-[#2D3B36] text-base md:text-lg font-normal leading-relaxed text-left max-w-xs md:max-w-xs pl-6 md:pl-0 md:pr-4 md:mt-8">
+              Transform your skincare routine with premium products that
+              restore, protect, and enhance your natural glow every day.
+            </p>
+          </div>
+          {/* Right: Bottle Image (tablet: right of text, much larger) */}
+          <div className="flex-1 flex justify-center md:justify-start md:items-start">
+            <img
+              src="/herobottle.png"
+              alt="Product Bottle"
+              className="w-48 h-48 md:w-[320px] md:h-[320px] rounded-2xl shadow-lg object-contain bg-white mt-4 md:mt-0"
+            />
+          </div>
+        </div>
+        {/* Center: Main Heading (tablet: below text and bottle, extra large, fills width) */}
+        <div className=" flex justify-center mb-4 md:mb-8">
+          <h1 className="text-[#2D3B36] text-[17vw] font-extrabold text-center -translate-y-35 leading-[0.9]  break-words">
+            GLOWWWW
+            <br />
+            NATURALLY
+          </h1>
+        </div>
+        {/* Hero image and notification bubble (tablet: below heading) */}
+        <div className="w-full flex flex-col md:flex-row md:items-center md:justify-center gap-6 md:gap-8">
+          <div className="flex justify-center md:justify-end w-full md:w-auto">
+            <div className="relative mt-4 md:mt-0 -translate-y-10 -translate-x-10">
+              <img
+                src="/hero.png"
+                alt="Hero"
+                className="w-64 h-72 md:w-100 md:h-100 object-cover  shadow-lg"
+              />
+              {/* Notification bubble */}
+              <div className="absolute left-1/2 bottom-[-36px] transform -translate-x-1/2 -translate-y-15 bg-white/80 backdrop-blur-lg rounded-full px-2 py-2 flex items-center gap-4 shadow-xl border border-[#E6E9E2] min-w-[250px] md:min-w-[350px] max-w-[90vw]">
+                <span className="inline-block w-12 h-12 md:w-15 md:h-15 bg-[#EFF5E1] rounded-full flex items-center justify-center border-2 border-dotted border-[#2D3B36] overflow-hidden">
+                  <img
+                    src="/herobottle.png"
+                    alt="Product"
+                    className="w-10 h-10 md:w-16 md:h-16 object-contain"
+                  />
+                </span>
+                <span className="text-[#2D3B36] text-xs md:text-base font-medium leading-snug">
+                  While giving you an invigorating
+                  <br className="hidden md:block" /> cleansing experience.
+                </span>
+              </div>
+            </div>
+          </div>
+          {/* Shop Now button (tablet: right of hero image) */}
+          <div className="flex justify-center md:justify-start items-center w-full md:w-auto mt-8 md:mt-0">
+            <button className="bg-[#232D1A] text-white px-6 py-2 rounded-full text-base font-semibold shadow hover:bg-[#3A6B7A] transition">
+              Shop Now
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* Full-width SKINCARE text with no gap at bottom */}
+      <div className="  flex justify-center mb-4 md:mb-8 ">
+        <h1 className="text-[#2D3B36] text-[18vw] font-extrabold text-center -translate-y-33 leading-[0.9]  break-words">
+          SKINCARE{" "}
+        </h1>
+      </div>
+      </section>
+
+      {/* Highlighted text block with half 100% opacity and half 30% opacity at the bottom */}
+      <section className="w-full bg-[#FEFFF4] py-10">
+        <div className=" px-2 max-w-4xl mx-auto">
+          <p className="text-[#2D3B36] text-2xl md:text-3xl font-normal leading-relaxed">
+            <span className="opacity-100">
+              Experience the ultimate in skincare with our expertly formulated products, crafted to nourish, protect, and rejuvenate your skin. Combining the finest natural ingredients with
+            </span>
+            <span className="lg:opacity-30">
+              advanced science, our collection ensures every skin type can achieve a radiant, healthy glow. Embrace your beauty with confidence every day. Experience the ultimate in skincare with our expertly formulated products, crafted to nourish, protect, and rejuvenate your skin.
+            </span>
+          </p>
+        </div>
+      </section>
+      </>
+  );
+};
+
+export default Hero;
